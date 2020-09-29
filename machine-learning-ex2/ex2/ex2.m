@@ -30,8 +30,8 @@ X = data(:, [1, 2]); y = data(:, 3);
 %  We start the exercise by first plotting the data to understand the 
 %  the problem we are working with.
 
-fprintf(['Plotting data with + indicating (y = 1) examples and o ' ...
-         'indicating (y = 0) examples.\n']);
+%fprintf(['Plotting data with + indicating (y = 1) examples and o ' ...
+%         'indicating (y = 0) examples.\n']);
 
 % plotData(X, y);
 
@@ -45,8 +45,8 @@ fprintf(['Plotting data with + indicating (y = 1) examples and o ' ...
 %legend('Admitted', 'Not admitted')
 %hold off;
 
-fprintf('\nProgram paused. Press enter to continue.\n');
-pause;
+%fprintf('\nProgram paused. Press enter to continue.\n');
+%pause;
 
 
 %% ============ Part 2: Compute Cost and Gradient ============

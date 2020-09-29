@@ -21,12 +21,19 @@ grad = zeros(size(theta));
 %
 % size(sigmoid(X * theta))
 
-J =  1 / m * (-1 * y' * log10(sigmoid(X * theta)) - (1-y)' * log10(1 - sigmoid(X * theta)))
 
-for i = 1:length(grad)
-	grad(i) = 1 / m * (sigmoid(X *theta) -y)' * X(:,i)
-endfor
-%grad = 1 / m * (X' * (sigmoid(X * theta) - y)
+%size(X * theta)
+
+estX = sigmoid(X*theta)
+%size(estX)
+
+J =  1 / m * (-1 * y' * log(estX) - (1-y') * log(1 - estX))
+
+%for i = 1:length(grad)
+grad = 1 / m * (estX -y)' * X
+	% grad(i) = 1 / m * (extX -y)' * X(:,i)
+%endfor
+%grad = 1 / m * (X' * (estX - y)
 
 
 

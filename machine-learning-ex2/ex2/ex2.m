@@ -30,23 +30,23 @@ X = data(:, [1, 2]); y = data(:, 3);
 %  We start the exercise by first plotting the data to understand the 
 %  the problem we are working with.
 
-%fprintf(['Plotting data with + indicating (y = 1) examples and o ' ...
-%         'indicating (y = 0) examples.\n']);
+fprintf(['Plotting data with + indicating (y = 1) examples and o ' ...
+         'indicating (y = 0) examples.\n']);
 
-% plotData(X, y);
+plotData(X, y);
 
 % Put some labels 
-%hold on;
+hold on;
 % Labels and Legend
-%xlabel('Exam 1 score')
-%ylabel('Exam 2 score')
+xlabel('Exam 1 score')
+ylabel('Exam 2 score')
 
 % Specified in plot order
-%legend('Admitted', 'Not admitted')
-%hold off;
+legend('Admitted', 'Not admitted')
+hold off;
 
-%fprintf('\nProgram paused. Press enter to continue.\n');
-%pause;
+fprintf('\nProgram paused. Press enter to continue.\n');
+pause;
 
 
 %% ============ Part 2: Compute Cost and Gradient ============
@@ -107,17 +107,17 @@ fprintf('Expected theta (approx):\n');
 fprintf(' -25.161\n 0.206\n 0.201\n');
 
 % Plot Boundary
-%plotDecisionBoundary(theta, X, y);
+plotDecisionBoundary(theta, X, y);
 
 % Put some labels 
-%hold on;
+hold on;
 % Labels and Legend
-%xlabel('Exam 1 score')
-%ylabel('Exam 2 score')
+xlabel('Exam 1 score')
+ylabel('Exam 2 score')
 
 % Specified in plot order
-%legend('Admitted', 'Not admitted')
-%hold off;
+legend('Admitted', 'Not admitted')
+hold off;
 
 fprintf('\nProgram paused. Press enter to continue.\n');
 pause;

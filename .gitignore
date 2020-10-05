@@ -2,5 +2,6 @@
 *.zip
 *.swo
 *.swn
+octave-workspace
 
 *.swp

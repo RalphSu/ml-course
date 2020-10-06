@@ -20,14 +20,20 @@ p = zeros(size(X, 1), 1);
 %       information see 'help max'. If your examples are in rows, then, you
 %       can use max(A, [], 2) to obtain the max for each row.
 %
+%fprintf('size of theta1'); % 25 * 401
+%size(Theta1)
+%fprintf('size of theta2'); % 10 * 26
+%size(Theta2)
+%fprintf('size of X'); % 5000 * 400
+%size(X)
 
+X = [ones(m, 1) X]; % 5000 * 401
+a_1 = sigmoid(X * Theta1'); % 5000 * 25
+a_1 = [ones(m, 1) a_1];
+a_2 = (a_1 * Theta2'); % 5000 * 10
+[v, label] = max(a_2, [], 2);
 
-
-
-
-
-
-
+p=label;
 
 % =========================================================================
 

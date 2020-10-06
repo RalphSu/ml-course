@@ -29,8 +29,11 @@ X = [ones(m, 1) X];
 %       are in rows, then, you can use max(A, [], 2) to obtain the max 
 %       for each row.
 %       
+% all_theta: 10 * 401
+% X = 5000 * 401
+[v, label] = max(X * all_theta', [], 2); % 5000 * 10; the X * all_theta is the predict probability of each label(1-10), choose the max one and the index, the index is the label, thus the index is p
 
-
+p = label;
 
 
 

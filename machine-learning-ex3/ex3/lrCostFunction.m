@@ -47,6 +47,12 @@ grad = zeros(size(theta));
 
 % =============================================================
 
-grad = grad(:);
+estX = sigmoid(X * theta);
+
+J =  1 / m * (-1 * y' * log(estX) - (1-y') * log(1 - estX)) +  lambda / 2 / m * ( sum(theta .^ 2) - theta(1) ^2 );
+
+grad = 1 / m * (estX -y)' * X  + lambda / m  * theta';
+grad = grad';
+grad(1, 1) =1 / m * (estX -y)' * X(:, 1) ;
 
 end

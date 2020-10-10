@@ -91,10 +91,10 @@ for i = 1:m
 	%size(z2)
 	err2 = (Theta2' * err3)(2:end) .* sigmoidGradient(z2);
 	%size(err2)
-	delta2 = delta2 + err3 * a2' .+ lambda *[zeros(size(Theta2), 1) Theta2(:, 2:end)];
+	delta2 = delta2 + err3 * a2' %.+ lambda *[zeros(size(Theta2), 1) Theta2(:, 2:end)];
 	%delta2 = delta2(2:end);
 	err1 = (Theta1' * err2)(2:end) .* sigmoidGradient(z1)(2:end, :);
-	delta1 = delta1 + err2 * a1' .+ lambda *[zeros(size(Theta1), 1) Theta1(:, 2:end)];
+	delta1 = delta1 + err2 * a1' %.+ lambda *[zeros(size(Theta1), 1) Theta1(:, 2:end)];
 	%size(delta2)
 	%fprintf('Program paused. Press enter to continue.\n');
 	%pause;

@@ -36,13 +36,13 @@ load('ex4data1.mat');
 m = size(X, 1);
 
 % Randomly select 100 data points to display
-sel = randperm(size(X, 1));
-sel = sel(1:100);
+%sel = randperm(size(X, 1));
+%sel = sel(1:100);
 
-displayData(X(sel, :));
+%displayData(X(sel, :));
 
-fprintf('Program paused. Press enter to continue.\n');
-pause;
+%fprintf('Program paused. Press enter to continue.\n');
+%pause;
 
 
 %% ================ Part 2: Loading Parameters ================
@@ -214,12 +214,12 @@ pause;
 %  displaying the hidden units to see what features they are capturing in 
 %  the data.
 
-fprintf('\nVisualizing Neural Network... \n')
+%fprintf('\nVisualizing Neural Network... \n')
 
-displayData(Theta1(:, 2:end));
+%displayData(Theta1(:, 2:end));
 
-fprintf('\nProgram paused. Press enter to continue.\n');
-pause;
+%fprintf('\nProgram paused. Press enter to continue.\n');
+%pause;
 
 %% ================= Part 10: Implement Predict =================
 %  After training the neural network, we would like to use it to predict

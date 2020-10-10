@@ -62,21 +62,51 @@ Theta2_grad = zeros(size(Theta2));
 %               and Theta2_grad from Part 2.
 %
 
+%size(Theta1)
+%size(Theta2)
+%size(lambda)
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+X = [ones(size(X, 1), 1) X];
+%delta3 = zeros(num_labels, 1);
+delta2 = zeros(num_labels, hidden_layer_size +1);
+delta1 = zeros(hidden_layer_size, input_layer_size +1);
+for i = 1:m
+	% feed forwrd to calculate the estimation
+	a1 = X(i, :)';
+	z1 = a1;
+	z2 = Theta1 * a1;
+	a2 = sigmoid(z2);
+	a2 = [ 1; a2];
+	z3 = Theta2 * a2;
+	a3 = sigmoid(z3); % num_labeles *1
+	y_i = eye(num_labels)(y(i), :); % vectorize y(i) from one value(1-10) to vector with 0/1 value at 10 dimensions
+	
+	% accumulate cost
+	J = J + sum( -1 * y_i * log(a3) - (1- y_i) * log(1- a3));
+	% backword propagation now
+%	size(a3)
+%	size(y_i)
+	err3 = a3 - y_i'; % num_lables* 1
+%	size(err3)
+	%size(z2)
+	err2 = (Theta2' * err3)(2:end) .* sigmoidGradient(z2);
+	%size(err2)
+	delta2 = delta2 + err3 * a2' .+ lambda *[zeros(size(Theta2), 1) Theta2(:, 2:end)];
+	%delta2 = delta2(2:end);
+	err1 = (Theta1' * err2)(2:end) .* sigmoidGradient(z1)(2:end, :);
+	delta1 = delta1 + err2 * a1' .+ lambda *[zeros(size(Theta1), 1) Theta1(:, 2:end)];
+	%size(delta2)
+	%fprintf('Program paused. Press enter to continue.\n');
+	%pause;
+	%err1 = Theta1' * err2 .* sigmoidGradient(z1)
+end
+J = J / m + lambda /2 /m * (sum(sum(Theta1(:, 2:size(Theta1, 2)) .^2)) + sum(sum(Theta2(:, 2:size(Theta2, 2)) .^2)));
+Theta1_grad = delta1/m;
+%size(Theta1)
+%size(delta1)
+Theta2_grad = delta2/m;
+%size(Theta2)
+%size(delta2)
 
 
 

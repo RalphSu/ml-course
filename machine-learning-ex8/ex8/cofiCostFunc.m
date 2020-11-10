@@ -57,13 +57,6 @@ X_grad = (R .* (X * Theta') - Y) * Theta + lambda *  X;
 Theta_grad = (R .* (X * Theta') - Y)' * X + lambda * Theta ;
 
 
-
-
-
-
-
-
-
 % =============================================================
 
 grad = [X_grad(:); Theta_grad(:)];
